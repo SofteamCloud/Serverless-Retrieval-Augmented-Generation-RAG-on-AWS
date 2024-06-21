@@ -65,6 +65,7 @@ const runChain = async ({identityId, query, model, streamingFormat}, responseStr
     //     {context}
     //     </context>`
     // );
+    // test after anthropic.claude-3-haiku-20240307-v1
 
     const llmModel = new BedrockChat({
         model: model || 'anthropic.claude-instant-v1',

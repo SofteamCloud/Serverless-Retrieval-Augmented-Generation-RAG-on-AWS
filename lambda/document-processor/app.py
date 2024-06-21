@@ -13,7 +13,7 @@ import pyarrow as pa
 import json
 
 # Set up environment variables
-aws_region = os.environ.get('AWS_REGION', 'us-west-2')
+aws_region = os.environ.get('AWS_REGION', 'eu-west-3')
 WEBSOCKET_ENDPOINT = os.environ.get('WEBSOCKET_ENDPOINT').replace('wss://', 'https://')
 WEBSOCKET_STATE_TABLE = os.environ.get('DYNAMODB_WEBSOCKET_STATE_TABLE')
 SQS_QUEUE_URL = os.environ.get('SQS_QUEUE_URL')
