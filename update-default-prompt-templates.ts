@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 // AWS configuration, change these values to match your environment
 const AWS_PROFILE = 'default';
-const AWS_REGION = process.env.AWS_REGION || 'us-west-2';
+const AWS_REGION = process.env.AWS_REGION || 'eu-west-3';
 
 // Load the YAML file
 const data: Record<string, string> = yaml.load(fs.readFileSync('./lib/prompt-templates.yml', 'utf8')) as Record<string, string>;

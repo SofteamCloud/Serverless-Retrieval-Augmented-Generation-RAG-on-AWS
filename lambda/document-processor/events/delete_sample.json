@@ -6,7 +6,7 @@
             {
                 "eventVersion": "2.1",
                 "eventSource": "aws:s3",
-                "awsRegion": "us-west-2",
+                "awsRegion": "eu-west-3",
                 "eventTime": "2024-05-31T20:06:49.158Z",
                 "eventName": "ObjectRemoved:DeleteMarkerCreated",
                 "userIdentity": {
@@ -30,7 +30,7 @@
                         "arn": "arn:aws:s3:::lancedbragstack-documentsbucket-REDACTED"
                     },
                     "object": {
-                        "key": "private/us-west-2%3A14b3a170-21cd-c6a1-e35f-0c07b0e0276f/Invoice-32EE7109-0011.pdf",
+                        "key": "private/eu-west-3%3A14b3a170-21cd-c6a1-e35f-0c07b0e0276f/Invoice-32EE7109-0011.pdf",
                         "eTag": "d41d8cd98f00b204e9800998ecf8427e",
                         "versionId": "27327IvvhGVCagBZcV4r8gNpugX6ovtj",
                         "sequencer": "00665A2DD92650005A"
@@ -43,8 +43,8 @@
 "messageAttributes": {},
 "md5OfBody": "96f201116e2c4d3d3ac2b948bde95dbd",
 "eventSource": "aws:sqs",
-"eventSourceARN": "arn:aws:sqs:us-west-2: 088913047585:LanceDbRagStack-DocumentProcessingQueueB731B00D-KuCaUdx32n7V",
-"awsRegion": "us-west-2"
+"eventSourceARN": "arn:aws:sqs:eu-west-3: 088913047585:LanceDbRagStack-DocumentProcessingQueueB731B00D-KuCaUdx32n7V",
+"awsRegion": "eu-west-3"
 },
 {
 "messageId": "7770c582-5517-4774-bf62-b3b7179d5d25",
@@ -53,7 +53,7 @@
     {
         "eventVersion": "2.1",
         "eventSource": "aws:s3",
-        "awsRegion": "us-west-2",
+        "awsRegion": "eu-west-3",
         "eventTime": "2024-05-31T20:02:56.050Z",
         "eventName": "ObjectRemoved:DeleteMarkerCreated",
         "userIdentity": {
@@ -77,7 +77,7 @@
                 "arn": "arn:aws:s3:::lancedbragstack-documentsbucket-REDACTED"
             },
             "object": {
-                "key": "private/us-west-2%3A14b3a170-21cd-c6a1-e35f-0c07b0e0276f/Invoice-28222620240509-7-5yelp.pdf",
+                "key": "private/eu-west-3%3A14b3a170-21cd-c6a1-e35f-0c07b0e0276f/Invoice-28222620240509-7-5yelp.pdf",
                 "eTag": "d41d8cd98f00b204e9800998ecf8427e",
                 "versionId": ".4R25.1aoCYCtkZqiTFEFdWXQp_QxFwk",
                 "sequencer": "00665A2CF00BD0AC1A"
@@ -90,8 +90,8 @@
 "messageAttributes": {},
 "md5OfBody": "6ef377ca5a943d97b962a1da104b3f28",
 "eventSource": "aws:sqs",
-"eventSourceARN": "arn:aws:sqs:us-west-2: 088913047585:LanceDbRagStack-DocumentProcessingQueueB731B00D-KuCaUdx32n7V",
-"awsRegion": "us-west-2"
+"eventSourceARN": "arn:aws:sqs:eu-west-3: 088913047585:LanceDbRagStack-DocumentProcessingQueueB731B00D-KuCaUdx32n7V",
+"awsRegion": "eu-west-3"
 }
 ]
 }

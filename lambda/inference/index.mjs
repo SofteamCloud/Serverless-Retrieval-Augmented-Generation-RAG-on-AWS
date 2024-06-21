@@ -313,4 +313,3 @@ Sample event 4:
         "contextFooter": "Custom context footer"
     }
 }
-*/
