@@ -14,8 +14,20 @@ const stackName = process.env.stackName;
 const embeddingModel = process.env.EMBEDDING_MODEL;
 
 const runChain = async ({identityId, query, model, streamingFormat, promptOverride}, responseStream) => {
-    const db = await connect(`s3://${lanceDbSrc}/embeddings/${identityId}`);
-    const table = await db.openTable(identityId);
+
+    let db, table, vectorStore, embeddings, retriever;
+
+    try{
+    
+        db = await connect(`s3://${lanceDbSrc}/embeddings/${identityId}`);
+        table = await db.openTable(identityId);
+        embeddings = new BedrockEmbeddings({region:awsRegion});
+        vectorStore = new LanceDB(embeddings, {table});
+        retriever = vectorStore.asRetriever();
+
+    }catch(error){
+        console.log("Could not load user's Lance table. Probably they haven't uploaded any documents yet", error);
+    }
 
     console.log('identityId', identityId);
     console.log('query', query);
@@ -87,51 +99,8 @@ const runChain = async ({identityId, query, model, streamingFormat, promptOverri
     
     let stream;
 
-    try{            
-        responseStream.write(`_~_${JSON.stringify(documentMetadata)}_~_\n\n`);
-
-        if (streaming){
-            const command = new ConverseStreamCommand({
-                modelId: model,
-                messages: conversation,
-                inferenceConfig: { maxTokens: 1000, temperature: 0.0, topP: 0.9 },
-            });
-            const response = await bedrockRuntimeClient.send(command);
-            // Extract and print the streamed response text in real-time.
-            for await (const item of response.stream) {
-                if (item.contentBlockDelta) {
-                    console.log(item.contentBlockDelta.delta?.text);
-                    switch (streamingFormat) {
-                        case 'fetch-event-source':
-                            responseStream.write(`event: message\n`);
-                            responseStream.write(`data: ${item.contentBlockDelta.delta?.text}\n\n`);
-                            break;
-                        default:
-                            responseStream.write(item.contentBlockDelta.delta?.text);
-                            break;
-                    }
-                }
-            }
-        } else {
-            const command = new ConverseCommand({
-                modelId: model,
-                messages: conversation,
-                inferenceConfig: { maxTokens: 1000, temperature: 0.0, topP: 0.9 },
-            });
-
-            const response = await bedrockRuntimeClient.send(command);
-            const responseText = response.output.message.content[0].text;
-            console.log(responseText);
-            switch (streamingFormat) {
-                case 'fetch-event-source':
-                    responseStream.write(`event: message\n`);
-                    responseStream.write(`data: ${responseText}\n\n`);
-                    break;
-                default:
-                    responseStream.write(responseText);
-                    break;
-            }
-        }
+    try{
+        stream = await chain.stream(query);
     }catch(e){
         console.log(e);
         responseStream.write(`An error occurred while invoking the selected model.\n ${e.message}`);
