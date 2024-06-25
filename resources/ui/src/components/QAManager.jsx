@@ -51,11 +51,6 @@ export function QAManager({ inferenceURL, creds, region, appConfig }) {
           isModified: true,
           values: parsedPrompt
         }
-
-      }
-      return {
-        isModified: false,
-        values:[]
       }
     }
     return {
