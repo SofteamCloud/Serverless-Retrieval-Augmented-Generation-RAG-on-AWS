@@ -1,5 +1,6 @@
 # Full Stack Serverless Retrieval Augmented Generation Application on AWS
 ## Architecture
+Fork from [AWS sample](https://github.com/aws-samples/Serverless-Retrieval-Augmented-Generation-RAG-on-AWS?tab=readme-ov-file)
 
 ![Overall architecture diagram](./assets/architecture.png)
 
@@ -23,10 +24,10 @@ npm install
 
 ### Deploy
 
-* For greater access to LLMs (at the time of writing), deploy the stack in the `us-west-2` region.
 
 ```sh
-cdk deploy
+cdk synth --profile prod
+cdk deploy --profile prod
 ```
 
 You should have a list of outputs in your console, similar to the following
@@ -175,18 +176,3 @@ npx ts-node update-default-prompt-templates.ts
 
 **WARNING:** Depending on your setup, you may need to change the region or profile in the script or pass it through the environment variables.
 
-## Authors
-
-**Giuseppe Battista** is a Senior Solutions Architect at Amazon Web Services. He leads soultions architecture for Early Stage Startups in UK and Ireland. He hosts the Twitch Show "Let's Build a Startup" on [twitch.tv/aws](https://bit.ly/basup-twitch) and he's head of Unicorn's Den accelerator.   
-Follow Giuseppe on [LinkedIn](https://bit.ly/43l7eEb)  
-
-**Kevin Shaffer-Morrison** is a Senior Solutions Architect at Amazon Web Services. He's helped hundreds of startups get off the ground quickly and up into the cloud. Kevin focuses on helping the earliest stage of founders with code samples and Twitch live streams.  
-Follow Kevin on [LinkedIn](https://www.linkedin.com/in/kshaffermorrison)
-
-**Anthony Bernabeu** is a Senior IoT Prototyping Architect at Amazon Web Services. He builds, jointly with customers, the most exciting and innovative IoT and Generative Ai prototypes on AWS.  
-Follow Anthony on [LinkedIn](https://bit.ly/4ehuyrg)
-
-## Contributors
-
-**Kirtan Dudhatra** is a software engineer at AWS, working on the Step Functions service. He has a strong background in distributed systems and cloud computing, and are passionate about solving complex problems and delivering high-quality software solutions.    
-Follow Kirtan on [LinkedIn](www.linkedin.com/in/kirtandudhatra)
