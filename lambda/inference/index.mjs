@@ -68,7 +68,7 @@ const runChain = async ({identityId, query, model, streamingFormat}, responseStr
     // test after anthropic.claude-3-haiku-20240307-v1
 
     const llmModel = new BedrockChat({
-        model: model || 'anthropic.claude-3-haiku-20240307-v1',
+        model: model || 'amazon.titan-text-lite-v1',
         region: awsRegion,
         streaming: true,
         maxTokens: 1000,
