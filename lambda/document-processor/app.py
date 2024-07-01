@@ -30,7 +30,7 @@ api_client = boto3.client('apigatewaymanagementapi', endpoint_url=WEBSOCKET_ENDP
 sqs_client = boto3.client('sqs')
 
 # Initialize langchain objects
-embeddings = BedrockEmbeddings(region_name=aws_region)
+embeddings = BedrockEmbeddings(region_name=aws_region,model_id='amazon.titan-embed-text-v1')
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
 def download_object(bucket_name, object_key, download_path):
