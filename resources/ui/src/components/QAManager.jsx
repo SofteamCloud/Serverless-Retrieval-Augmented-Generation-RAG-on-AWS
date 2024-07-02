@@ -355,3 +355,4 @@ const ExpandableText = ({ children }) => {
       )}
     </Box>
   );
+};
