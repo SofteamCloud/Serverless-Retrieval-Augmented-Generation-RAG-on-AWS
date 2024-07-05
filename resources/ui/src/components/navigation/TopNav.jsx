@@ -15,7 +15,7 @@ const TopNav = ({signOut, user}) => {
     <TopNavigation
       identity={{
         href: "#",
-        title: "Serverless RAG",
+        title: "Softeam Serverless RAG",
         onFollow: () => navigate("/"),
       }}
       utilities={[
